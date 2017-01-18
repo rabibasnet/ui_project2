@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+    <head>
+<title>first angular app</title>
+        <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+        </head>
+<body ng-app="appName">
+		<!--<div ng-include="'/views/contactListForm.html'"></div><!--bad practice-->
+
+    <div ng-controller="contactListCtrl">
+<!--			<div ng-include="'../views/contactListForm.html'"></div>bad practice-->
+	<contact-list-form></contact-list-form>
+	<contact-list-table></contact-list-table>
+	<table class="table table-striped">
+	<caption>results</caption>
+		<input style="float:right; right:20px" padding:20px type="text" ng-model="searchMd" placeholder="search...">
+		<tr>
+		<th>first name</th>
+		<th>lastName</th>
+		<th>Address</th>
+		<th>phone</th>
+		</tr>
+		
+	<tr ng-repeat="x in contactList|filter:searchMd|orderBy:'firstName':false"><!--false is ascending order, true is descendigng number:: orderby is sorting the list   Also you want to search by the firstName or LastName only::::::use ['firstName', 'address'] to orderBy the firstName first and then the address-->
+		<td>{{x.firstName}}</td>
+		<td>{{x.lastName}}</td>
+		<td>{{x.address}}</td>
+		<td>{{x.phone}}</td>
+		
+		<td>{{x.email}}</td>
+		
+		</tr>
+<!--		<h1>Results</h1>-->
+		
+	</table>
+<!--	<ol>
+		<li ng-repeat="x in the contactlist">{{x.firstName}}
+			</li></ol> declare controller, how u post in html
+-->
+	
+	</div>
+<!--
+	by element type E
+	
+	<contact-list-form></contact-list-form>
+	
+	 by attribute type A
+	<div contact-list-form></div>
+	by class
+-->
+<!--	<span class="contact-list-form"></span>-->
+    </body>
+	<script type="text/javascript" src="../node_modules/angular/angular.js"></script>
+    <script type="text/javascript" src="../scripts/app.js"></script>
+	<script type="text/javascript" src="../scripts/controllers/appCtrl.js"></script>
+	<script type ="text/javascript" src="../scripts/services/personService.js"></script>
+	<script type ="text/javascript" src="../scripts/services/personHttp.js"></script>
+    <script type ="text/javascript" src="../scripts/controllers/personCtrl.js"></script>
+	<script type ="text/javascript" src="../scripts/services/personFactory.js"></script>
+	<script type ="text/javascript" src="../scripts/controllers/contactListCtrl.js"></script>
+	<script type="text/javascript" src="../scripts/directives/contactListForm.js"></script>
+	<script type ="text/javascript" src="../scripts/controllers/contactListCtrlArray.js"></script>
+   
+</html>

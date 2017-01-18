@@ -1,0 +1,28 @@
+<!doctype html>
+<html ng-app="yantra">
+<head>
+<title>calculator</title>
+    
+    
+  <!--  <link rel="stylesheet" href="../style/culator.css">-->
+</head>
+<body>
+  <div ng-controller="wrappCtrl">
+    
+   
+       <cfform ng-submit="wrappCtrl">
+    <input type="number" name="numOne" ng-model="numOne" size="20"><br>
+     <input type="number" name="numTwo" ng-model="numTwo" size="20"><br> 
+	<input type="radio" name="muOper" ng-model="myOper" value="+">Add
+	<input type="radio" name="muOper" ng-model="myOper" value="-">Subtract	
+	 <input type="radio" name="muOper" ng-model="myOper" value="/">Divide
+		   <input type="radio" name="muOper" ng-model="myOper" value="*">Multiply
+		   
+	  </cfform>   
+     
+	   {{numOne}}{{myOper}} {{numTwo}} = {{doCalculation(myOper).toFixed(2)}}
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular.min.js"></script>
+    <script type= "text/javascript" src="../scripts/calculator.js" ></script>
+	  </div>
+</body>
+</html>
